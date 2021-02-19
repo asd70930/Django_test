@@ -21,5 +21,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.showtemplate),
+    path('', views.showtemplate, name="showtemplate"),
 ]
