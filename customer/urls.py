@@ -21,6 +21,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.showtemplate, name="showtemplate"),
-    path('create', views.vendor_create_view, name="vendor_create_view"),
+    path('', views.showtemplate),
+    path('add_order', views.add_order),
+    path('delete_order', views.delete_order),
+    path('show_top', views.show_top),
 ]
