@@ -1,0 +1,37 @@
+{% extends "signin/base.html" %}
+
+{% block title %}Youtube節目{% endblock %}
+
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">現在撥出 {{ tv_ob.name }} </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            播放列表
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for tvv in tv_list %}
+                                <li><a href="{% url 'tv-url' forloop.counter0 %}">{{ tvv.name }}</a></li>
+                            {% endfor %}
+                          </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div id="tvcode" align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{tv_ob.tv_code}}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+{% endblock %}

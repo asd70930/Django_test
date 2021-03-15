@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'phone.apps.PhoneConfig',
+    'signin.apps.SigninConfig',
     'vender.apps.VenderConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,5 +119,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 STATIC_URL = '/static/'
