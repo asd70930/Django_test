@@ -18,4 +18,4 @@ def vendor_create_view(request):
     context = {
         'form': form
     }
-    return render(request, "vendors/vendor_create.html", context)
+    return render(request, "vender/vendor_create.html", context)
