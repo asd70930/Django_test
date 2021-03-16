@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sigin.apps.SiginConfig',
     'customer.apps.CustomerConfig',
     'vender.apps.VenderConfig',
     'django.contrib.admin',
