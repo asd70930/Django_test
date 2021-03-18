@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'sigin.apps.SiginConfig',
-    'customer.apps.CustomerConfig',
+    'phone.apps.PhoneConfig',
+    'signin.apps.SigninConfig',
     'vender.apps.VenderConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,12 +77,35 @@ WSGI_APPLICATION = 'my_django.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test1',
+        'USER': 'asd70930',
+        'PASSWORD': '0326Asdf',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+          'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
+    },
+    # 'mysql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'test1',
+    #     'USER': 'root',
+    #     'PASSWORD': '0326Asdf',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    #     'OPTIONS': {
+    #       # 'driver': 'SQL Server Native Client 11.0',
+    #       # 'MARS_Connection': True,
+    #     }
+    # }
 }
-
+# DATABASE_ROUTERS = ['django_py.dbRouterSetting.DatabaseRouter', ]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -119,5 +142,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 STATIC_URL = '/static/'
