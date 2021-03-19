@@ -12,3 +12,16 @@ def tv_page(request, tv=0):
     tvno = tv
     tv_ob = tv_list[tvno]
     return render(request, 'signin/tv_page.html', locals())
+
+
+def sign_page(request):
+    try:
+        urid = request.GET['user_id']
+        urpass = request.GET['user_pass']
+    except:
+        urid = None
+    if urid != None and urpass == '123':
+        verified = True
+    else:
+        verified = False
+    return render(request, 'signin/signin_page.html', locals())

@@ -19,8 +19,8 @@ from django.urls import path
 from . import views
 
 
-
 urlpatterns = [
-    path('', views.tv_page),
-    path('<int:tv>', views.tv_page, name='tv-url')
+    path('tv', views.tv_page),
+    path('tv/<int:tv>', views.tv_page, name='tv-url'),
+    path('', views.sign_page),
 ]

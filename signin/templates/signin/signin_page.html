@@ -1,0 +1,33 @@
+{% extends "signin/base.html" %}
+
+{% block title %}登入{% endblock %}
+
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">登入啦 </a>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form name="my form" action="/signin" method="get">
+        <label for="user_id">Your ID:</label>
+        <input id="user_id" type="text" name="user_id">
+        <label for="user_pass">Your Password:</label>
+        <input id="user_pass" type="password" name="user_pass">
+        <input type="submit" value="登入">
+        <input type="reset" value="清除重填">
+    </form>
+Your ID:{{ urid | default:"未輸入ID"}}<br>
+{% if verified %}
+    <em>你通過了驗證</em>
+{% else %}
+    <em>帳號或密碼錯誤</em>
+{% endif %}
+</div>
+{% endblock %}
